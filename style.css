@@ -9,17 +9,20 @@ body {
   background-color: #f4f6f9;
   padding: 20px;
   color: #333;
+  max-width: 100%;
 }
 
 h2, h3, h4 {
   color: #2c3e50;
   margin-bottom: 10px;
+  line-height: 1.4;
 }
 
 #scanner-container {
   width: 100%;
   max-width: 480px;
-  height: 320px;
+  height: auto;
+  aspect-ratio: 4/3;
   border: 2px solid #3498db;
   border-radius: 10px;
   overflow: hidden;
@@ -39,16 +42,20 @@ h2, h3, h4 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .product-name {
   font-weight: 600;
   color: #2d3436;
+  flex: 1 1 60%;
 }
 
 .product-weight {
   color: #27ae60;
   font-weight: bold;
+  flex: 1 1 30%;
+  text-align: right;
 }
 
 #total-weight {
@@ -56,17 +63,56 @@ h2, h3, h4 {
   color: #e67e22;
 }
 
-#reset {
+#reset, #next-btn {
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 12px 20px;
   background: #e74c3c;
   border: none;
   color: white;
   font-size: 16px;
   border-radius: 6px;
   cursor: pointer;
+  width: 100%;
+}
+
+#next-btn {
+  background: #3498db;
 }
 
 #reset:hover {
   background: #c0392b;
+}
+
+#next-btn:hover {
+  background: #2980b9;
+}
+
+/* 📱 Mobil moslashuv */
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  #scanner-container {
+    height: auto;
+    width: 100%;
+    aspect-ratio: 4/3;
+  }
+
+  .product {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product-name,
+  .product-weight {
+    flex: 1 1 100%;
+    text-align: left;
+    margin-bottom: 4px;
+  }
+
+  #reset, #next-btn {
+    font-size: 18px;
+    padding: 14px;
+  }
 }
